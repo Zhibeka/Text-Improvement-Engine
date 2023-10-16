@@ -45,10 +45,7 @@ def find_similar_phrases():
     text = text_input.get(1.0, tk.END).strip()
     phrases = phrases_input.get(1.0, tk.END).strip().split('\n')
     similar_words = text_analyzer.phrase_finder(text, phrases)
-    
-    # Format the dictionary as a string
-    result_str = '\n'.join(f'{key}: {value}' for key, value in similar_words.items())
-    
+    result_str = '\n'.join(f'{item[0]}: {item[1]}' for item in similar_words)
     result_input.delete(1.0, tk.END)
     result_input.insert(tk.END, result_str)
 
